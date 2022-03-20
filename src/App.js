@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import {Routes, Route} from 'react-router-dom'
+import { HomePage } from './Pages/HomePage';
+import { ListPage } from './Pages/ListPage';
+import { useNavigate } from "react-router-dom";
+import { DetailPage } from './Pages/DetailPage';
+import { PokedexPage } from './Pages/PokedexPage';
 
 function App() {
+  const navigate = useNavigate()
+
+  const handleHomeClick = () => {
+    navigate('/')
+  }
+
+  const handleListClick = () => {
+    navigate('/pokemon-list')
+  }
+
+  const handlePokedexClick = () => {
+    navigate('/pokedex')
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <div>
+      Test
+      <div>
+        <a onClick={handleHomeClick}>
+          Go to Home
         </a>
-      </header>
+        <a onClick={handleListClick}>
+          Go to Pokemon List
+        </a>
+        <a onClick={handlePokedexClick}>
+          Go to Pokedex
+        </a>
+      </div>
+      <Routes>
+        <Route exact path='/' element={<HomePage/>}/>
+        <Route path='/pokemon-list' element={<ListPage/>}/>
+        <Route path='/detail/:name' element={<DetailPage/>}/>
+        <Route path='/pokedex' element={<PokedexPage/>}/>
+      </Routes>
     </div>
   );
 }
