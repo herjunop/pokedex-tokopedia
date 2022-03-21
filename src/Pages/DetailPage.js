@@ -4,25 +4,39 @@ import { gql, useQuery } from "@apollo/client"
 import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { CatchModal } from "../Components/CatchModal"
+import { Dropdown } from "../Components/Dropdown"
+import { Loader } from "../Components/Loader"
 import { DetailPageStyle } from "../Styles/PagesStyle"
 const GET_POKEMON = gql`
     query pokemon($name: String!) {
         pokemon(name: $name) {
             id
             name
+            abilities {
+              ability {
+                name
+              }
+            }
+            abilities {
+              ability {
+                name
+              }
+            }
+            moves {
+              move {
+                name
+              }
+            }
+            types {
+              type {
+                name
+              }
+            }
             sprites {
                 front_default
             }
-            moves {
-                move {
-                    name
-                }
-            }
-            types {
-                type {
-                    name
-                }
-            }
+            height
+            weight
         }
     }
 `
@@ -33,6 +47,10 @@ export const DetailPage = () => {
     const [loadingText, setLoadingText] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const [displayModal, setDisplayModal] = useState(false)
+    const [displayTypes, setDisplayTypes] = useState(false)
+    const [displayMoves, setDisplayMoves] = useState(false)
+    const [displayAbilities, setDisplayAbilities] = useState(false)
+
     const { loading, error, data } = useQuery(GET_POKEMON, {
         variables: { name },
     });
@@ -58,26 +76,48 @@ export const DetailPage = () => {
         return chance >= 0.5
     }
 
-    if (loading) return `Loading`;
+    if (loading) return <Loader/>;
 
     if (error) return `Error! ${error}`;
 
     return (
         <div css={DetailPageStyle}>
-            Detail Page
             {data.pokemon.id ? 
-            (<div>
-                <div>
-                    {data.pokemon.id}
+            (<div className="card">
+                <div className="name">
+                    <strong>{data.pokemon.name}</strong>
                 </div>
-                <button onClick={handleCatchPokemon}>
-                    Throw pokeball
-                </button>
-            </div>)
+
+                <div className="picture">
+                    <img src={data.pokemon.sprites.front_default} alt=""/>
+                </div>
+
+                <div className="type" onClick={()=>setDisplayTypes(!displayTypes)}>
+                    Types
+                </div>
+                <Dropdown display={displayTypes} datas={data.pokemon.types} type={'Types'}/>
+                
+                <div className="type" onClick={()=>setDisplayMoves(!displayMoves)}>
+                    Moves
+                </div>
+                <Dropdown display={displayMoves} datas={data.pokemon.moves} type={'Moves'}/>
+
+                <div className="type" onClick={()=>setDisplayAbilities(!displayAbilities)}>
+                    abilities
+                </div>
+                <Dropdown display={displayAbilities} datas={data.pokemon.abilities} type={'Abilities'}/>
+
+                <div className="throw-ball" onClick={handleCatchPokemon}>
+                    Throw Pokeball!
+                </div>
+            </div>
+            )
             : 
-            (<div>
-                Pokemon Not Found!
-            </div>) 
+            (
+                <div className="not-found">
+                    Pokemon Not Found!
+                </div>
+            ) 
             }
             <CatchModal 
                 displayModal={displayModal} 

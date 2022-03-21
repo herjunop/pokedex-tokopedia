@@ -5,6 +5,7 @@ html, body {
 	margin: 0px;
   font-family: 'Roboto Condensed';
   background-image: linear-gradient(75deg, #bd4949, #7b2916);
+  text-transform: uppercase;
 }
 
 code {

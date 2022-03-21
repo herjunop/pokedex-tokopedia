@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import {gql, useQuery} from "@apollo/client";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Loader } from "../Components/Loader";
 import { PokemonListRow } from "../Components/PokemonListRow";
 import { ListPageStyle } from "../Styles/PagesStyle";
 
@@ -25,7 +25,7 @@ const GET_POKEMONS = gql`
     }
 `;
 
-const limit = 10
+const limit = 3
 
 export const ListPage = () => {
     const [pokemons, setPokemons] = useState([])
@@ -49,19 +49,29 @@ export const ListPage = () => {
         }
     }, [data])
    
-    if (loading) return `Loading`;
-
     if (error) return `Error! ${error}`;
 
     return (
         <div css={ListPageStyle}>
-            Pokemon List
-            {pokemons.map((pokemon) => (
-                <PokemonListRow pokemon={pokemon} key={`pokemon-${pokemon.id}`}/>
-            ))}
-            <button onClick={()=>setOffset(prevOffset)}>Prev</button>
-            <div>{currentPage}/{totalPage}</div>
-            <button onClick={()=>setOffset(nextOffset)}>Next</button>
+            {loading ? 
+                (
+                    <Loader/>
+                )
+                :
+                (
+                    <div className="pokemon-list">
+                        {pokemons.map((pokemon) => (
+                            <PokemonListRow pokemon={pokemon} key={`pokemon-${pokemon.id}`}/>
+                        ))}
+                    </div>
+                )
+            }
+            
+            <div className="pagination">
+                <button onClick={()=>setOffset(prevOffset)}>Prev</button>
+                <div>{currentPage}/{totalPage}</div>
+                <button onClick={()=>setOffset(nextOffset)}>Next</button>
+            </div>
         </div>
     )
 }
