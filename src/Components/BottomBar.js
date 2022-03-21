@@ -9,18 +9,18 @@ export const BottomBar = () => {
     return (
         <div css={BottomBarStyle}>
             <div id="bottom-bar" >
-                <div className={`bottom-bar-element ${location.pathname === '/' && "active"}`}>
-                    <span onClick={()=>navigate('/')}>
+                <div className={`bottom-bar-element ${location.pathname === '/' && "active"}`} onClick={()=>navigate('/')}>
+                    <span>
                     Home
                     </span>
                 </div>
-                <div className={`bottom-bar-element ${location.pathname === '/pokemon-list' && "active"}`}>
-                    <span onClick={()=>navigate('/pokemon-list')}>
+                <div className={`bottom-bar-element ${location.pathname === '/pokemon-list' && "active"}`} onClick={()=>navigate('/pokemon-list')}>
+                    <span>
                     Pokemon List
                     </span>
                 </div>
-                <div className={`bottom-bar-element ${location.pathname === '/pokedex' && "active"}`}>
-                    <span onClick={()=>navigate('/pokedex')}>
+                <div className={`bottom-bar-element ${location.pathname === '/pokedex' && "active"}`} onClick={()=>navigate('/pokedex')}>
+                    <span>
                     My Pokemon
                     </span>
                 </div>

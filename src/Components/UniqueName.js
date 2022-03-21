@@ -24,13 +24,15 @@ export const UniqueName = ({pokemon}) => {
     }
 
     return (
-        <div>
-            Give it a unique name!
+        <div className="unique-name">
+            <div>
+                Give it a unique name!
+            </div>
             <form onSubmit={handleSubmit}>
                 <input type="text" value={name} onChange={(e)=>setName(e.target.value)} placeholder="Set Name"/>
                 <input type="submit" value="Submit"/>
-                {error && (<div>{error}</div>)}
             </form>
+            {error && (<div className="error">{error}</div>)}
         </div>
     )
 }

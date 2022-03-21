@@ -8,11 +8,17 @@ export const PokemonListRow = ({pokemon}) => {
 
     return (
         <div onClick={()=>navigate('/detail/'+ pokemon.name)} className='pokemon-element'>
-            <div>
+            <div className="pokemon-name">
                 {pokemon.name}
             </div>
-            <div>
-                owned : {countOwned(temp, pokemon)}
+            <img className="pokemon-image" src={pokemon.image} alt=""/>
+            <div className="pokemon-owned">
+                <div>
+                    owned: 
+                </div>
+                <div>
+                    {countOwned(temp, pokemon)}
+                </div>
             </div>
         </div>
     )
