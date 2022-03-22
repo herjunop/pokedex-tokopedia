@@ -48,13 +48,13 @@ export const LoaderStyle = css`
         animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
         border-color: #fff transparent transparent transparent;
     }
-    .lds-ring div:nth-child(1) {
+    .lds-ring div:nth-of-type(1) {
         animation-delay: -0.45s;
     }
-    .lds-ring div:nth-child(2) {
+    .lds-ring div:nth-of-type(2) {
         animation-delay: -0.3s;
     }
-    .lds-ring div:nth-child(3) {
+    .lds-ring div:nth-of-type(3) {
         animation-delay: -0.15s;
     }
     @keyframes lds-ring {
@@ -117,4 +117,73 @@ export const SearchBarStyle = css`
         width: 1px;
         overflow: hidden;
       }
+`
+
+export const PokedexCardStyle = css`
+    border: 0.5rem solid;
+    width: 70%;
+    max-width: 500px;
+    background-color: #b19d49;
+    padding: 5px;
+    margin: 20px;
+
+    .name {
+        font-size:large;
+        border: 2px solid black;
+        border-radius: 12px;
+        padding: 10px;
+        margin: 5px;
+    }
+    .picture {
+        border: 2px solid black;
+        border-radius: 12px;
+        background-image: url('/images/images.jpg');
+        background-size: contain;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        margin: 5px;
+        height: 20vh;
+
+        img {
+            height:100%;
+        }
+    }
+
+    .type {
+        border: 2px solid black;
+        border-radius: 12px;
+        margin: 5px;
+        padding: 5px;
+        cursor:pointer;
+    }
+
+    .dropdown {
+        border: 2px solid black;
+        border-radius: 12px;
+        margin:0 10px 5px;
+        padding: 5px;
+        background-color: #e3e5dd;
+        display: flex;
+        flex-wrap: wrap;
+
+        .data {
+            font-size:10px;
+            border: 2px solid black;
+            margin: 2px;
+            padding: 2px;
+            border-radius: 12px;
+        }
+    }
+
+    .throw-ball {
+        border: 2px solid black;
+        border-radius: 12px;
+        margin: 15px;
+        padding: 10px;
+        background-color:red;
+        cursor:pointer;
+        text-align: center;
+    }
+    
 `
