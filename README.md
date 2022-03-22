@@ -6,4 +6,4 @@ The stacks used in this project are:
 * Apollo + GraphQL
 * Emotion
 
-A working deployed site can be seen here: [Link](https://herjunop-pokedex.web.app/pokedex)
+A working deployed site can be seen here: https://herjunop-pokedex.web.app
