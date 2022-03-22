@@ -5,6 +5,7 @@ import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { CatchModal } from "../Components/CatchModal"
 import { Loader } from "../Components/Loader"
+import { NotFound } from "../Components/NotFound"
 import { PokedexCard } from "../Components/PokedexCard"
 import { DetailPageStyle } from "../Styles/PagesStyle"
 const GET_POKEMON = gql`
@@ -85,9 +86,7 @@ export const DetailPage = () => {
             )
             : 
             (
-                <div className="not-found">
-                    Pokemon Not Found!
-                </div>
+                <NotFound/>
             ) 
             }
             <CatchModal 
