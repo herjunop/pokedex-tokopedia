@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+/** @jsxImportSource @emotion/react */
+
+import {Routes, Route} from 'react-router-dom'
+import { HomePage } from './Pages/HomePage';
+import { ListPage } from './Pages/ListPage';
+import { DetailPage } from './Pages/DetailPage';
+import { PokedexPage } from './Pages/PokedexPage';
+import { BottomBar } from './Components/BottomBar';
+import { AppStyle } from './Styles/PagesStyle';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div css={AppStyle}>
+      <div className='topbar'>
+        <Routes>
+          <Route exact path='/' element={<HomePage/>}/>
+          <Route path='/pokemon-list' element={<ListPage/>}/>
+          <Route path='/detail/:name' element={<DetailPage/>}/>
+          <Route path='/pokedex' element={<PokedexPage/>}/>
+        </Routes>
+      </div>
+      <BottomBar/>
     </div>
   );
 }
