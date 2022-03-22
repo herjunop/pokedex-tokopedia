@@ -8,73 +8,6 @@ export const DetailPageStyle = css`
     justify-content:center;
     align-items:center;
 
-    .card {
-        border: 0.5rem solid;
-        width: 70%;
-        max-width: 500px;
-        background-color: #b19d49;
-        padding: 5px;
-        margin: 20px;
-
-        .name {
-            font-size:large;
-            border: 2px solid black;
-            border-radius: 12px;
-            padding: 10px;
-            margin: 5px;
-        }
-        .picture {
-            border: 2px solid black;
-            border-radius: 12px;
-            background-image: url('/images/images.jpg');
-            background-size: contain;
-            justify-content: center;
-            align-items: center;
-            display: flex;
-            margin: 5px;
-            height: 20vh;
-
-            img {
-                height:100%;
-            }
-        }
-
-        .type {
-            border: 2px solid black;
-            border-radius: 12px;
-            margin: 5px;
-            padding: 5px;
-            cursor:pointer;
-        }
-
-        .dropdown {
-            border: 2px solid black;
-            border-radius: 12px;
-            margin:0 10px 5px;
-            padding: 5px;
-            background-color: #e3e5dd;
-            display: flex;
-            flex-wrap: wrap;
-
-            .data {
-                font-size:10px;
-                border: 2px solid black;
-                margin: 2px;
-                padding: 2px;
-                border-radius: 12px;
-            }
-        }
-
-        .throw-ball {
-            border: 2px solid black;
-            border-radius: 12px;
-            margin: 15px;
-            padding: 10px;
-            background-color:red;
-            cursor:pointer;
-        }
-    }
-
     .modal {
         display: none; /* Hidden by default */
         position: fixed; /* Stay in place */
@@ -89,11 +22,12 @@ export const DetailPageStyle = css`
     }
 
     .modal-content {
-        background-color: #fefefe;
+        background-color: #e3e5dd;
         margin: auto;
         padding: 20px 20px 60px;
         border: 5px solid black;
         width: 80%;
+        max-width: 500px;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -114,6 +48,7 @@ export const DetailPageStyle = css`
             form {
                 display:flex;
                 flex-direction:column;
+                align-items:center;
                 input {
                     margin:3px 0;
                 }
@@ -121,6 +56,30 @@ export const DetailPageStyle = css`
             div {
                 margin:5px 0;
             }
+
+            #input-name {
+                border-radius: 25px;
+                border: 2px solid;
+                height: 30px;
+                padding:5px;
+                text-align:center;
+            }
+
+            #input-submit {
+                border: 2px solid;
+                border-radius: 25px;
+                height: 30px;
+                width:75%;
+            }
+        }
+
+        .throw-ball {
+            border: 2px solid black;
+            border-radius: 12px;
+            margin: 15px;
+            padding: 10px;
+            background-color:red;
+            cursor:pointer;
         }
 
         .error {
@@ -163,8 +122,8 @@ export const ListPageStyle = css`
         padding: 0 3px;
         margin: 10px auto;
         width: 70%;
-        background-color: #e3e5dd;
         max-width: 500px;
+        background-color: #e3e5dd;
         cursor:pointer;
         
         .pokemon-name {
@@ -193,6 +152,17 @@ export const ListPageStyle = css`
         justify-content: center;
         align-items:end;
         margin-bottom: 20px; 
+
+        button {
+            border: 2px solid;
+            padding: 5px 15px;
+            border-radius: 25px;
+            margin: 0 25px;
+        }
+
+        div {
+            padding: 5px 15px;
+        }
     }
 `
 
@@ -203,6 +173,70 @@ export const HomePageStyle = css`
     flex-direction:column;
     justify-content:space-evenly;
     align-items:center;
+`
+
+export const PokedexPageStyle = css`
+    height:100%;
+    flex-grow:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    .modal-content {
+        background-color: #e3e5dd;
+        margin: auto;
+        padding: 20px 20px 60px;
+        border: 5px solid black;
+        width: 80%;
+        max-width: 500px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+
+        p {
+            text-align: center;
+        }
+
+        .confirmation {
+            display:flex;
+            flex-direction: row;
+            width:75%;
+            justify-content: space-between;
+
+            .confirm {
+                border: 2px solid black;
+                padding: 5px 10px;
+                background-color:red;
+                cursor:pointer;
+                border-radius: 12px;
+            }
+
+            .cancel {
+                border: 2px solid black;
+                padding: 5px 10px;
+                cursor:pointer;
+                border-radius: 12px;
+            }
+        }
+    }
 `
 
 export const AppStyle = css`

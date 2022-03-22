@@ -8,8 +8,8 @@ export const SearchBar = ({handleSubmit, placeholder}) => {
     return (
         <div css={SearchBarStyle}>
             <form onSubmit={()=>handleSubmit(search)} role="search">
-                <label for="search">Search for stuff</label>
-                <input id="search" type="search" value={search} onChange={(e)=>setSearch(e.target.value)} placeholder={placeholder} autofocus required />
+                <label htmlFor="search">Search for stuff</label>
+                <input id="search" type="search" value={search} onChange={(e)=>setSearch(e.target.value)} placeholder={placeholder} autoFocus required />
                 <button type="submit">Go</button>    
             </form>
         </div>
