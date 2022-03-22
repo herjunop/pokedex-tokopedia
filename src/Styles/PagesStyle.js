@@ -94,12 +94,6 @@ export const DetailPageStyle = css`
         font-weight: bold;
         cursor: pointer;
     }
-
-    .not-found {
-        border: 0.5rem solid;
-        background-color: #e3e5dd;
-        padding: 5px;
-    }
 `
 
 export const ListPageStyle = css`

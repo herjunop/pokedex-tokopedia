@@ -7,7 +7,7 @@ export const HomePage = () => {
     const navigate = useNavigate()
 
     const handleSubmit = (search) => {
-        navigate('/detail/'+ search)
+        navigate('/detail/'+ search.toLowerCase())
     }
 
     return (

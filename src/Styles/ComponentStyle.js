@@ -187,3 +187,13 @@ export const PokedexCardStyle = css`
     }
     
 `
+
+export const NotFoundStyle = css`
+    border: 0.5rem solid;
+    background-color: #e3e5dd;
+    padding: 5px;
+    width:50%;
+    max-width:500px;
+    align-self:center;
+    text-align:center;
+`

@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { useState } from "react";
+import { NotFound } from "../Components/NotFound";
 import { PokedexCard } from "../Components/PokedexCard";
 import { PokedexPageStyle } from "../Styles/PagesStyle";
 
@@ -24,6 +25,12 @@ export const PokedexPage = () => {
         localStorage.setItem("pokedex", JSON.stringify(newPokedex))
         setTemp(newPokedex)
         setDisplayModal(false)
+    }
+
+    if (!temp.length) {
+        return (
+            <NotFound/>
+        )
     }
     return (
         <div css={PokedexPageStyle}>
