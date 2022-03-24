@@ -5,5 +5,6 @@ The stacks used in this project are:
 * React using Create React App
 * Apollo + GraphQL
 * Emotion
+* PWA
 
 A working deployed site can be seen here: https://herjunop-pokedex.web.app
