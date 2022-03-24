@@ -29,7 +29,7 @@ export const PokedexPage = () => {
 
     if (!temp.length) {
         return (
-            <NotFound/>
+            <NotFound text={'Pokemon Not Found'}/>
         )
     }
     return (

@@ -76,7 +76,7 @@ export const DetailPage = () => {
 
     if (loading) return <Loader/>;
 
-    if (error) return `Error! ${error}`;
+    if (error) return <NotFound text={'Fetch Error'}/>
 
     return (
         <div css={DetailPageStyle}>
@@ -86,7 +86,7 @@ export const DetailPage = () => {
             )
             : 
             (
-                <NotFound/>
+                <NotFound text={'Pokemon Not Found'}/>
             ) 
             }
             <CatchModal 

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Loader } from "../Components/Loader";
 import { PokemonListRow } from "../Components/PokemonListRow";
 import { ListPageStyle } from "../Styles/PagesStyle";
+import { NotFound } from "../Components/NotFound";
 
 const GET_POKEMONS = gql`
     query pokemons($limit: Int, $offset: Int) {
@@ -49,7 +50,7 @@ export const ListPage = () => {
         }
     }, [data])
    
-    if (error) return `Error! ${error}`;
+    if (error) return <NotFound text={'Fetch Error'}/>
 
     return (
         <div css={ListPageStyle}>
